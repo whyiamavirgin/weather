@@ -125,7 +125,7 @@ const Weather = () => {
             setBgColor("#FEFEFE")
             setTextColor("#76BD15")
             setWeatherIcon(Sunny_day_icon)
-          } else if(localTimeVarInt >= 20 && localTimeVarInt < 23){
+          } else if(localTimeVarInt >= 20 && localTimeVarInt <= 23){
             setbgImagePath(Sunny_sunset)
             setBgColor("#F8676E")
             setTextColor("#FBF48A")

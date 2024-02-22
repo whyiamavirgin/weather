@@ -53,6 +53,8 @@ const Weather = () => {
   const [weatherIcon, setWeatherIcon] = useState(null)
   // const [getAutoIP, setIP] = useState("");
   const [ipData, setIPData] = useState(null)
+  const [weatherForecast, setWeatherForecast] = useState(null)
+
 
 
 
@@ -63,7 +65,7 @@ const Weather = () => {
 
   const cloudy = ["Переменная облачность", 'Облачно', "Пасмурно", "Дымка", "Туман","Переохлажденный туман", "Поземок"]
 
-  const sunny = ["Солнечно"]
+  const sunny = ["Солнечно", "Ясно"]
 
   const snowy = ["Местами снег", "Местами дождь со снегом", "Местами замерзающая морось", "Метель","Местами небольшой снег","Небольшой снег", 
   "Местами умеренный снег","Умеренный снег","Местами сильный снег","Сильный снег", "Небольшой снег","Умеренный или сильный снег",]
@@ -76,49 +78,7 @@ const Weather = () => {
   "В отдельных районах умеренный или сильный дождь с грозой","В отдельных районах местами небольшой снег с грозой","В отдельных районах умеренный или сильный снег с грозой"]
 
 
-  // const getUserLocation = () => {
-  //   if(navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => {
-  //         const { latitude, longitude } = position.coords
 
-  //         // setUserLocation({ latitude, longitude })
-  //         latitudeGlobal = latitude
-  //         longitudeGlobal = longitude
-
-  //       },
-  //       (error) => {
-  //         console.error('Error getting user location: ', error);
-  //         alert('Error getting user location: ', error)
-  //       }
-        
-  //     )
-  //   }
-
-  //   else {
-  //     console.error("Geolocation is not supported in this browser.");
-  //   }
-
-  // }
-
-  // const fetchIP = async () => {
-    
-  //   const res = await axios.get("https://api.ipify.org/?format=json");
-  //   console.log(res.data);
-  //   setIP(res.data);
-  //   console.log(getAutoIP)
-    
-  //   try {
-      
-  //     setIPData(responseIP.data)
-  //     console.log(responseIP.data)
-      
-  //     // console.log(ipGet)
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  //   console.log(ipData) 
-  // }
 
   const fetchData = async () => {
 
@@ -138,6 +98,13 @@ const Weather = () => {
       );
       setWeatherData(response.data);
       console.log(response.data); 
+
+      // const responseForecast = await axios.get(
+      //   `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru&days=5`
+      // )
+      // setWeatherForecast(responseForecast.data)
+      // console.log(responseForecast.data)
+
       //You can see all the weather data in console log
       
       if(response.data) {
@@ -252,23 +219,8 @@ const Weather = () => {
 
  
 
-    // document.body.style.background = "url(./images/cloudy1.JPG)"
   };
 
-  // const fetchDataAstro = async () => {
-
-  //   try {
-  //     const responseAstro = await axios.get(
-  //       `https://api.weatherapi.com/v1/astronomy.json?key=a81b4414f60f4c868a8162028241702&q=${latitudeGlobal},${longitudeGlobal}`
-  //     );
-  //     setWeatherDataAstro(responseAstro.data);
-  //     console.log(responseAstro.data); 
-  
-  //     //You can see all the weather data in console log
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
 
 
   
@@ -282,8 +234,9 @@ const Weather = () => {
 
 
   return (
-    <div className='main' style={{
+    <div className='main'  style={{
       backgroundImage: `url(${bgImagePath})`
+      
     }}>
 
         
@@ -295,25 +248,53 @@ const Weather = () => {
         }}>
           <p className='date'>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5 9.92285C5 14.7747 9.24448 18.7869 11.1232 20.3252C11.3921 20.5454 11.5281 20.6568 11.7287 20.7132C11.8849 20.7572 12.1148 20.7572 12.271 20.7132C12.472 20.6567 12.6071 20.5463 12.877 20.3254C14.7557 18.7871 18.9999 14.7751 18.9999 9.9233C18.9999 8.08718 18.2625 6.32605 16.9497 5.02772C15.637 3.72939 13.8566 3 12.0001 3C10.1436 3 8.36301 3.7295 7.05025 5.02783C5.7375 6.32616 5 8.08674 5 9.92285Z" stroke={textColor} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9Z" stroke={textColor} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+          <path d="M5 9.92285C5 14.7747 9.24448 18.7869 11.1232 20.3252C11.3921 20.5454 11.5281 20.6568 11.7287 20.7132C11.8849 20.7572 12.1148 20.7572 12.271 20.7132C12.472 20.6567 12.6071 20.5463 12.877 20.3254C14.7557 18.7871 18.9999 14.7751 18.9999 9.9233C18.9999 8.08718 18.2625 6.32605 16.9497 5.02772C15.637 3.72939 13.8566 3 12.0001 3C10.1436 3 8.36301 3.7295 7.05025 5.02783C5.7375 6.32616 5 8.08674 5 9.92285Z" stroke={textColor} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9Z" stroke={textColor} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
 
 
-            Сейчас</p>
+            {weatherData.location.name}</p>
           <p className='temperature'> <img className='weather_icon' src={weatherIcon}></img>  {weatherData.current.temp_c}°</p>
           <p className='state'>{weatherData.current.condition.text}</p>
-          <p className='location'>{weatherData.location.name}, {weatherData.location.country}</p>
+          <p className='minmax'>Ветер {weatherData.current.wind_kph} км/ч</p>
           <p className='current_date'>{weatherData.location.localtime.slice(0,10)}</p>
           <p className='feels_like'>Ощущается как {weatherData.current.feelslike_c}° | {weatherData.current.is_day ? ( "Закат " + weatherDataAstro.astronomy.astro.sunset) : ("Восход " + weatherDataAstro.astronomy.astro.sunrise)}</p>
           
         </div>
       ) : (
-        <div className='card'> 
-          <div className='centered'><LoaderExampleInlineCentered /></div>
-       </div>
+        <div className='card' id='card' style={{
+          background: "#282A65",
+          color: "#9882BF"
+        }}>
+          <p className='date'>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 9.92285C5 14.7747 9.24448 18.7869 11.1232 20.3252C11.3921 20.5454 11.5281 20.6568 11.7287 20.7132C11.8849 20.7572 12.1148 20.7572 12.271 20.7132C12.472 20.6567 12.6071 20.5463 12.877 20.3254C14.7557 18.7871 18.9999 14.7751 18.9999 9.9233C18.9999 8.08718 18.2625 6.32605 16.9497 5.02772C15.637 3.72939 13.8566 3 12.0001 3C10.1436 3 8.36301 3.7295 7.05025 5.02783C5.7375 6.32616 5 8.08674 5 9.92285Z" stroke="#9882BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9Z" stroke="#9882BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+
+            ----</p>
+          <p className='temperature'> <img className='weather_icon' src={Cloudy_night_icon}></img>  --°</p>
+          <p className='state'>-----</p>
+          <p className='minmax'>Ветер ----- км/ч</p>
+          <p className='current_date'>-----</p>
+          <p className='feels_like'>Ощущается как --° | ----</p>
+          
+        </div>
         
       )} 
+
+      {/* {weatherData ? (
+        <div className='dayForecast' style={{
+          background: bgColor,
+          color: textColor
+        }}>
+          <p>aaa</p>
+        </div>
+      ) : (
+        <div></div>
+      )} */}
+
     <div className='info'>
             <div className='powered'>
               <p className='powered_text'>Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>

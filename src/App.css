@@ -55,10 +55,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* align-items: center; */
   gap: 10px;
   font-size: 1.8em;
   padding-top: 15px;
   font-weight: 500;
+}
+
+.date svg {
+  margin-top: -5px;
 }
 
 .temperature {
@@ -115,6 +120,37 @@ body {
 .version {
   padding-right: 10px;
 }
+
+.dayForecast {
+  min-width: 280px;
+  max-width: 80%;
+  height: 150px;
+  background: #000;
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 19px;
+  /* background: rgb(40,42,101); */
+  /* background: linear-gradient(155deg, rgba(40,42,101, 0.9) 50%, rgba(152,130,191,0.9) 100%); */
+}
+
+.mirror {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  opacity: 0.7;
+  height: 100%;
+  background: rgb(40,42,101);
+  background: linear-gradient(175deg, rgba(40,42,101,0.9) 49%, rgba(152,130,191,0.9) 100%);
+}
+
+/* .dayForecast::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ffff;
+} */
 
 /* Медиа запросы */
 

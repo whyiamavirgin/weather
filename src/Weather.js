@@ -125,12 +125,17 @@ const Weather = () => {
             setBgColor("#FEFEFE")
             setTextColor("#76BD15")
             setWeatherIcon(Sunny_day_icon)
-          } else if(localTimeVarInt >= 20 && localTimeVarInt < 6){
+          } else if(localTimeVarInt >= 20 && localTimeVarInt < 23){
             setbgImagePath(Sunny_sunset)
             setBgColor("#F8676E")
             setTextColor("#FBF48A")
             setWeatherIcon(Sunny_sunset_icon)
-        } 
+        } else if(localTimeVarInt >= 0 && localTimeVarInt < 6){
+          setbgImagePath(Sunny_sunset)
+          setBgColor("#F8676E")
+          setTextColor("#FBF48A")
+          setWeatherIcon(Sunny_sunset_icon)
+      } 
         } else if(cloudy.indexOf(`${response.data.current.condition.text}`) > -1) {
           
           if(localTimeVarInt >= 6 && localTimeVarInt < 12) {

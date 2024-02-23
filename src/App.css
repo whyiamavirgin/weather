@@ -139,8 +139,28 @@ body {
   border-radius: 16px;
   font-family: Comfortaa-Medium;
   padding: 15px 20px;
+  /* text-align: left; */
 }
 
+.hourText {
+  display: flex;
+  color: #CCC;
+  gap: 5px;
+}
+
+.updateBlock {
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.update {
+  position: relative;
+  font-size: 18px;
+  display: flex;
+  top: 20px;
+}
 
 .up {
   display: flex;
@@ -202,7 +222,7 @@ body {
   min-height: 300px;
   position: relative;
   margin: auto;
-  margin-top: 140px;
+  margin-top: 40px;
   border-radius: 16px;
   font-family: Comfortaa-Medium;
   text-align: left;

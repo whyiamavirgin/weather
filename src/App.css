@@ -172,8 +172,8 @@ body {
 }
 
 .weather_icon_small {
-  width: 20px;
-  height: 17px;
+  width: 26px;
+  height: 23px;
 }
 
 .white_line {
@@ -206,6 +206,40 @@ body {
   gap: 6px;
   font-size: 11px;
   align-items: center;
+}
+
+.dailyForecastInfo {
+  margin-top: 20px;
+}
+
+.forecastRow:first-child {
+  border-top: 2px #ffffffa8 solid;
+}
+
+.forecastRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px #ffffffa8 solid;
+  padding-top: 15px;
+}
+
+.forecastRow img {
+  margin-top: -5px;
+}
+
+.weather_icon_big {
+  width: 35px;
+  height: 30px;
+}
+
+.minmaxTemp {
+  display: flex;
+  gap: 15px;
+}
+
+.minmaxTemp svg {
+  margin-left: -12px;
 }
 
 /* Медиа запросы */

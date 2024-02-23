@@ -289,7 +289,7 @@ const Weather = () => {
   useEffect(() => {
     setTimeout(() => {
       fetchData()
-    }, 1000)
+    }, 0)
   }, []);
 
 

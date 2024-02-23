@@ -304,7 +304,7 @@ const Weather = () => {
 
       {weatherForecast ? (
         <div className='card' id='card' style={{
-          
+          bgColor: bgColor,
           color: textColor
         }}>
           <p className='date'>

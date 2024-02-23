@@ -47,7 +47,7 @@ body {
   font-family: Comfortaa-Medium;
   padding-bottom: 15px;
   top: 50px;
-  text-shadow: 2px 2px 10px #000;
+  /* text-shadow: 2px 2px 10px #000; */
 }
 
 .date {
@@ -79,7 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  text-shadow: 2px 2px 15px #393939;
+  /* text-shadow: 2px 2px 15px #393939; */
 }
 
 .state {
@@ -99,7 +99,7 @@ body {
 .weather_icon {
   width: 85px;
   position: relative;
-  filter: drop-shadow(2px 2px 15px #393939);
+  /* filter: drop-shadow(2px 2px 15px #393939); */
 }
 
 .info {

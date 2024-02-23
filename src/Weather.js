@@ -304,7 +304,7 @@ const Weather = () => {
 
       {weatherForecast ? (
         <div className='card' id='card' style={{
-          background: bgColor,
+          
           color: textColor
         }}>
           <p className='date'>
@@ -345,7 +345,7 @@ const Weather = () => {
         
       )} 
 
-       {weatherForecast ? (
+       {/* {weatherForecast ? (
         <div className='dayForecast' style={{
           background: hourForecastBgColor,
           color: "#fff"
@@ -379,7 +379,6 @@ const Weather = () => {
           </div>
 
           <div className='white_line'></div>
-
           <div className='down'>
             <div className='hourForecast'>
               <p>{localTimeVarInt + 5}</p>
@@ -402,9 +401,9 @@ const Weather = () => {
               <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].temp_c}°</p>
             </div>
             <div className='hourForecast'>
-              <p>{localTimeVarInt + 9} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+9].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+9].temp_c}°</p>
+              <p>{localTimeVarInt + 8} </p>
+              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].condition.icon}></img>
+              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].temp_c}°</p>
             </div>
           </div>
         </div>
@@ -413,7 +412,8 @@ const Weather = () => {
           background: "#282A65",
           color: "#FFF"
         }}></div>
-      )} 
+      )}  */}
+
 
       {weatherForecast ? (
         <div className='dayliForecast' 

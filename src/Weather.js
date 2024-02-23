@@ -43,7 +43,7 @@ import Snowy_night_icon from "./images/snowy/snowy_icon_night.png"
 
 const Weather = () => {
 
-  const version = '0.1.1'
+  const version = '0.2'
 
   const imageAttribution = "Image by wirestock"
 

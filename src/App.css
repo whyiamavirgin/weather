@@ -21,7 +21,7 @@
 
 body {
 
-  background-size: 100%;
+  background-size: 100vh;
   height: 100%;
 }
 
@@ -29,7 +29,7 @@ body {
   position: relative;
   margin: auto;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   width: 100%; 
   backdrop-filter: blur(5px);
   text-align: center;
@@ -97,12 +97,12 @@ body {
 
 .info {
   position: relative;
-  top: 45%;
   font-size: 10px;
   color: #FFFDD4;
   display: flex;
   text-align: left;
   justify-content: space-between;
+  margin-top: 100px;
 }
 
 .powered {
@@ -123,34 +123,90 @@ body {
 
 .dayForecast {
   min-width: 280px;
+  width: 400px;
   max-width: 80%;
-  height: 150px;
-  background: #000;
+  min-height: 150px;
   position: relative;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 90px;
   border-radius: 19px;
-  /* background: rgb(40,42,101); */
-  /* background: linear-gradient(155deg, rgba(40,42,101, 0.9) 50%, rgba(152,130,191,0.9) 100%); */
+  font-family: Comfortaa-Medium;
+  padding: 15px 20px;
 }
 
-.mirror {
-  position: absolute;
+
+.up {
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+}
+
+.down {
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+}
+
+.hourForecast {
+  /* margin-top: 15px; */
+  text-align: center;
+  align-items: center;
+}
+
+.hourForecast p{
   margin: 0;
-  width: 100%;
-  opacity: 0.7;
-  height: 100%;
-  background: rgb(40,42,101);
-  background: linear-gradient(175deg, rgba(40,42,101,0.9) 49%, rgba(152,130,191,0.9) 100%);
+  padding: 0;
+  font-size: 10px;
 }
 
-/* .dayForecast::before{
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #ffff;
-} */
+.hourForecast p:first-child {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.tempForecast {
+  display: flex;
+  align-items: center;
+  color: #f6f6f6;
+  gap: 2px;
+}
+
+.weather_icon_small {
+  width: 20px;
+  height: 17px;
+}
+
+.white_line {
+  height: 1px;
+  width: 90%;
+  background: #fff;
+  border-radius: 8px;
+  position: relative;
+  margin: auto;
+  margin: 20px;
+}
+
+.dayliForecast {
+  min-width: 280px;
+  width: 400px;
+  max-width: 80%;
+  min-height: 300px;
+  position: relative;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 19px;
+  font-family: Comfortaa-Medium;
+  text-align: left;
+  padding: 15px 20px;
+}
+
+
+.dayliText {
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+  align-items: center;
+}
 
 /* Медиа запросы */
 
@@ -171,6 +227,10 @@ body {
     padding-bottom: 30px;
   }
 
+  .dayForecast {
+    width: 400px;
+  }
+
   .info {
     top: 40%;
   }
@@ -189,3 +249,15 @@ body {
   }
 }
 
+
+@media screen and (min-width: 500px) {
+  .hourForecast p {
+    font-size: 13px;
+  }
+
+  .hourForecast p:first-child {
+    font-size: 15px;
+  }
+
+
+}

@@ -318,6 +318,7 @@ body {
   justify-content: space-between;
   /* text-align: left; */
   /* padding: 20px; */
+  padding-left: 15px;
 
   padding-bottom: 15px;
 
@@ -353,13 +354,15 @@ body {
   display: flex;
   text-align: left;
   margin: 0;
-  padding:  10px 15px ;
+  padding: 0;
+  padding:  10px 0px ;
   align-items: center;
   gap: 7px;
   color: #ffffff;
   font-size: 12px;
   border-bottom: 1px #ffffff55 solid;
   margin-bottom: 15px;
+
 }
 
 .left svg {

@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css'
 import LoaderExampleInlineCentered from './Loader';
+import HourForecast from './HourForecats';
+import { FreeMode, Parallax } from 'swiper/modules'
+import 'swiper/css/free-mode';
+import "swiper/css/parallax"
+import { Swiper, SwiperSlide} from 'swiper/react';
+import moment from 'moment'
+import 'moment/locale/ru'
 
 // Импортируем файлы для облачной погоды
 
@@ -39,11 +46,11 @@ import Snowy_day_icon from "./images/snowy/snowy_icon_day.png"
 import Snowy_night_icon from "./images/snowy/snowy_icon_night.png"
 
 
-
+moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '0.2'
+  const version = '0.3.0'
 
   const imageAttribution = "Image by wirestock"
 
@@ -68,6 +75,8 @@ const Weather = () => {
   let localDayVar
   let localDayVarInt
   let localMonthVar
+
+  let weekDay = moment().format('dddd').toUpperCase()
 
 
   
@@ -318,7 +327,7 @@ const Weather = () => {
           <p className='temperature'> <img className='weather_icon' src={weatherIcon}></img>  {weatherForecast.current.temp_c}°</p>
           <p className='state'>{weatherForecast.current.condition.text}</p>
           <p className='minmax'>Макс.: {weatherForecast.forecast.forecastday[0].day.maxtemp_c}°, мин.: {weatherForecast.forecast.forecastday[0].day.mintemp_c}°</p>
-          <p className='current_date'>{weatherForecast.location.localtime.slice(0,10)}</p>
+          <p className='current_date'>{weekDay}</p>
           <p className='feels_like'>Ощущается как {weatherForecast.current.feelslike_c}° | {weatherForecast.current.is_day ? ( "Закат " + weatherForecast.forecast.forecastday[0].astro.sunset) : ("Восход " + weatherForecast.forecast.forecastday[0].astro.sunrise)}</p>
           
         </div>
@@ -344,28 +353,11 @@ const Weather = () => {
         </div>
         
       )} 
-
         {weatherForecast ? (
-          <div 
-          className='dayForecast' style={{
-            background: hourForecastBgColor,
-            color: "#fff"
-          }}>
-            <p className='hourText'>
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.5 4.33333V8.5H12.6667M8.5 16C4.35786 16 1 12.6421 1 8.5C1 4.35786 4.35786 1 8.5 1C12.6421 1 16 4.35786 16 8.5C16 12.6421 12.6421 16 8.5 16Z" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            ПОЧАСОВОЙ ПРОГНОЗ
-            </p>
-            <div className='updateBlock'>
-                <p className='update'>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 20V18M18 16H20M7.04996 11.293L5.63574 12.7072C4.07365 14.2693 4.07466 16.8016 5.63675 18.3637C7.19885 19.9258 9.7308 19.9262 11.2929 18.3641L12.7076 16.9497M6 8H4M8 4V6M11.293 7.05044L12.7072 5.63623C14.2693 4.07413 16.8016 4.07368 18.3637 5.63578C19.9258 7.19787 19.9254 9.7308 18.3633 11.2929L16.9492 12.7071" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                В Разработке
-                </p>
-            </div>
+          <div className='dayForecast'> 
+          <HourForecast />
           </div>
+          
         ) : (
           <div className='dayForecast' style={{
             background: "#282A65",
@@ -373,85 +365,16 @@ const Weather = () => {
           }}></div>
         )}
 
-       {/* {weatherForecast ? (
-        <div className='dayForecast' style={{
-          background: hourForecastBgColor,
-          color: "#fff"
-        }}>
-          <div className='up'>
-            <div className='hourForecast'>
-              <p>Сейчас</p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt].condition.icon}></img>
-              <p>  {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 1} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+1].condition.icon}></img>
-              <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+1].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 2} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+2].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+2].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 3} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+3].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+3].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 4} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+4].condition.icon}></img>
-              <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+4].temp_c}°</p>
-            </div>
-          </div>
-
-          <div className='white_line'></div>
-          <div className='down'>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 5}</p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+5].condition.icon}></img>
-              <p>  {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+5].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 6} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+6].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+6].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 7} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+7].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+7].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 8} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].temp_c}°</p>
-            </div>
-            <div className='hourForecast'>
-              <p>{localTimeVarInt + 8} </p>
-              <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].condition.icon}></img>
-              <p> {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].temp_c}°</p>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className='dayForecast' style={{
-          background: "#282A65",
-          color: "#FFF"
-        }}></div>
-      )}  */}
-
-
       {weatherForecast ? (
         <div className='dayliForecast' 
-        style={{background: dailyForecastBgColor,
+        style={{
         color: "#FFF"
         }}>
           <p className='dayliText'><svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 2.5H3.40015C2.56007 2.5 2.13972 2.5 1.81885 2.66349C1.5366 2.8073 1.3073 3.0366 1.16349 3.31885C1 3.63972 1 4.06007 1 4.90015V5.5M4 2.5H10M4 2.5V1M10 2.5H10.6001C11.4402 2.5 11.8597 2.5 12.1805 2.66349C12.4628 2.8073 12.6929 3.0366 12.8367 3.31885C13 3.6394 13 4.05925 13 4.89768V5.5M10 2.5V1M1 5.5V12.1001C1 12.9402 1 13.36 1.16349 13.6809C1.3073 13.9632 1.5366 14.1929 1.81885 14.3367C2.1394 14.5 2.55925 14.5 3.39768 14.5H10.6023C11.4408 14.5 11.86 14.5 12.1805 14.3367C12.4628 14.1929 12.6929 13.9632 12.8367 13.6809C13 13.3604 13 12.9411 13 12.1027V5.5M1 5.5H13M10 11.5H10.0015L10.0015 11.5015L10 11.5015V11.5ZM7 11.5H7.0015L7.00146 11.5015L7 11.5015V11.5ZM4 11.5H4.0015L4.00146 11.5015L4 11.5015V11.5ZM10.0015 8.5V8.5015L10 8.50146V8.5H10.0015ZM7 8.5H7.0015L7.00146 8.5015L7 8.50146V8.5ZM4 8.5H4.0015L4.00146 8.5015L4 8.50146V8.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 2.5H3.40015C2.56007 2.5 2.13972 2.5 1.81885 2.66349C1.5366 2.8073 1.3073 3.0366 1.16349 3.31885C1 3.63972 1 4.06007 1 4.90015V5.5M4 2.5H10M4 2.5V1M10 2.5H10.6001C11.4402 2.5 11.8597 2.5 12.1805 2.66349C12.4628 2.8073 12.6929 3.0366 12.8367 3.31885C13 3.6394 13 4.05925 13 4.89768V5.5M10 2.5V1M1 5.5V12.1001C1 12.9402 1 13.36 1.16349 13.6809C1.3073 13.9632 1.5366 14.1929 1.81885 14.3367C2.1394 14.5 2.55925 14.5 3.39768 14.5H10.6023C11.4408 14.5 11.86 14.5 12.1805 14.3367C12.4628 14.1929 12.6929 13.9632 12.8367 13.6809C13 13.3604 13 12.9411 13 12.1027V5.5M1 5.5H13M10 11.5H10.0015L10.0015 11.5015L10 11.5015V11.5ZM7 11.5H7.0015L7.00146 11.5015L7 11.5015V11.5ZM4 11.5H4.0015L4.00146 11.5015L4 11.5015V11.5ZM10.0015 8.5V8.5015L10 8.50146V8.5H10.0015ZM7 8.5H7.0015L7.00146 8.5015L7 8.50146V8.5ZM4 8.5H4.0015L4.00146 8.5015L4 8.50146V8.5Z" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ПРОГНОЗ НА 10 ДНЕЙ</p>
+          ПРОГНОЗ НА 10 ДНЕЙ
+          </p>
 
           <div className='dailyForecastInfo'>
             <div className='forecastRow'>
@@ -618,6 +541,7 @@ const Weather = () => {
             <div className='powered'>
               <p className='powered_text'>Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
               <p className='powered_text'>Images by wirestock</p>
+              <p className='powered_text'>Made by Benjamin</p>
             </div>
             <p className='version'>Version : {version}</p>
           </div>

@@ -50,7 +50,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '0.3.0'
+  const version = '0.3.3'
 
   const imageAttribution = "Image by wirestock"
 
@@ -105,23 +105,6 @@ const Weather = () => {
         `https://api.weatherapi.com/v1/ip.json?key=a81b4414f60f4c868a8162028241702&q=auto:ip`
       );
       
-      // const responseForecast = await axios.get(
-      //   `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru&days=5`
-      // )
-      // setWeatherForecast(responseForecast.data)
-      // console.log(responseForecast.data)
-
-      // const responseAstro = await axios.get(
-      //         `https://api.weatherapi.com/v1/astronomy.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru`
-      //       ); 
-      //       setWeatherDataAstro(responseAstro.data);
-      //       console.log(responseAstro.data)
-
-      // const response = await axios.get(
-      //   `https://api.weatherapi.com/v1/current.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru`
-      // );
-      // setWeatherData(response.data);
-      // console.log(response.data); 
 
       const responseForecast = await axios.get(
         `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru&days=10`

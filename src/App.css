@@ -217,8 +217,8 @@ body {
   background: rgba(255, 255, 255, 0.3);
 
 /* This controls the blurring effect*/
-  backdrop-filter: blur( 5px );
-  -webkit-backdrop-filter: blur( 5px );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
 
 /*Adding the shadow*/
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
@@ -236,7 +236,7 @@ body {
   gap: 6px;
   font-size: 12px;
   align-items: center;
-  color: #ccc;
+  color: #ffffff;
 }
 .dayliText svg {
   margin-top: -4px;
@@ -251,9 +251,11 @@ body {
 }
 
 .forecastRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* display: flex;
+  flex-direction: row; */
+  /* justify-content: space-between; */
   border-bottom: 2px #ffffffa8 solid;
   padding-top: 15px;
 }
@@ -296,7 +298,7 @@ body {
   margin-top: 90px;
   border-radius: 16px;
   color: #fff;
-  font-weight: bold;
+
   font-family: Comfortaa-Medium;
   /* padding: 15px 20px; */
   /* text-align: left; */
@@ -323,8 +325,8 @@ body {
   background: rgba(255, 255, 255, 0.3);
 
 /* This controls the blurring effect*/
-  backdrop-filter: blur( 5px );
-  -webkit-backdrop-filter: blur( 5px );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
 
 /*Adding the shadow*/
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
@@ -336,13 +338,14 @@ body {
 }
 
 .upper-layer p:first-child {
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .weather_icon_small {
   width: 48px;
   height: 45px;
-  margin-bottom: 8px;
 }
 
 
@@ -353,11 +356,14 @@ body {
   padding:  10px 15px ;
   align-items: center;
   gap: 7px;
-  color: #ccc;
+  color: #ffffff;
   font-size: 12px;
   border-bottom: 1px #ffffff55 solid;
   margin-bottom: 15px;
-  
+}
+
+.left svg {
+  margin-top: -5px;
 }
 
 /* Медиа запросы */

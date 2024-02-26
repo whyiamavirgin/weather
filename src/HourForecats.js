@@ -42,6 +42,100 @@ export default () => {
     
     
     switch (localTimeVarInt) {
+      case 11 :
+        return(
+          <div className = "upper-layer">
+          {weatherForecast ? (
+                  
+                  <Swiper
+                      // install Swiper modules
+                      modules={[ FreeMode]}
+                      spaceBetween={1}
+                      slidesPerView={4}
+                      // autoplay={{delay:2000}}
+                      freeMode={{ enabled: true, minimumVelocity: 0.1, momentumBounce:false }}
+                      >
+                      <SwiperSlide>
+                          <p>Сейчас</p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt].condition.icon}></img>
+                          <p>  {weatherForecast.forecast.forecastday[0].hour[localTimeVarInt].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 1} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+1].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+1].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 2} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+2].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+2].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 3} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+3].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+3].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 4} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+4].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+4].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 5} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+5].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+5].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 6} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+6].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+6].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 7} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+7].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+7].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 8} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+8].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 9} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+9].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+9].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 10} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+10].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+10].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>{localTimeVarInt + 11} </p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+11].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[0].hour[localTimeVarInt+11].temp_c}°</p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                          <p>00</p>
+                          <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[1].hour[0].condition.icon}></img>
+                          <p>{weatherForecast.forecast.forecastday[1].hour[0].temp_c}°</p>
+                      </SwiperSlide>
+                      <span slot="container-start" className='left'>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 7V12H17M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+
+                        ПОЧАСОВОЙ ПРОГНОЗ
+                        </span>
+                  </Swiper>
+          
+          ) : (
+              <div>a</div>
+          )}
+          </div>
+
+  )
+        break 
         case 12 :
           return(
             <div className = "upper-layer">

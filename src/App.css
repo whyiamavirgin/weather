@@ -293,9 +293,9 @@ body {
 .dayForecast {
   display: flex;
   text-align: center;
-  /* min-width: 280px; */
-  /* width: 90%;
-  max-width: 90%; */
+  min-width: 180px;
+  width: 90%;
+  max-width: 90%;
   min-height: 150px;
   
   position: relative;
@@ -315,9 +315,9 @@ body {
   margin: auto;
   text-align: center;
 /* Setting the size of the upper layer to 80% of the screen size*/
-  min-width: 280px;
-  width: 90%;
-  max-width: 90%;
+  /* min-width: 280px; */
+  width: 100%;
+  /* max-width: 90%; */
   min-height: 150px;
   align-items: center;
   justify-content: space-between;
@@ -541,7 +541,7 @@ body {
   }
 
   .dayForecast {
-    width: 90%;
+    width: 500px;
   }
 
   .dayliForecast {

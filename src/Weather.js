@@ -601,7 +601,12 @@ const Weather = () => {
           </div>
         </div>
       ) : (
-        <div></div>
+        <div
+        style={{
+          background: "#282A65",
+          color: "#FFF"
+        }}
+        ></div>
       )}
 
       <div className='wind'>
@@ -634,7 +639,12 @@ const Weather = () => {
             </div>
           </div>
         ) : (
-          <div></div>
+          <div
+          style={{
+            background: "#282A65",
+            color: "#FFF"
+          }}
+          ></div>
         )}
       </div>
 

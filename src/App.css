@@ -225,7 +225,7 @@ body {
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
 
 /* Adding our borders*/
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   z-index: 4;
 }
@@ -259,6 +259,7 @@ body {
   /* justify-content: space-between; */
   border-bottom: 2px #ffffffa8 solid;
   padding-top: 15px;
+  /* align-items: center; */
 }
 
 .forecastRow:last-child {
@@ -279,8 +280,11 @@ body {
 }
 
 .minmaxTemp {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .minmaxTemp svg {
@@ -301,7 +305,7 @@ body {
   position: relative;
   margin: auto;
   margin-top: 90px;
-  border-radius: 16px;
+  border-radius: 12px;
   color: #fff;
 
   font-family: Comfortaa-Medium;
@@ -338,7 +342,7 @@ body {
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
 
 /* Adding our borders*/
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 4;
 }
@@ -408,7 +412,7 @@ body {
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
 
 /* Adding our borders*/
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 4;
 }
@@ -435,6 +439,7 @@ body {
 
 .slider {
   margin: 0;
+  color: #70e000;
 }
 
 .css-53tbrc-MuiSlider-root.Mui-disabled {
@@ -469,7 +474,7 @@ body {
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
 
 /* Adding our borders*/
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 4;
 }

@@ -10,20 +10,61 @@ import 'swiper/css';
 
 
 
+let latitude = 0 
+let longitude = 0 
 
 let localTimeVarInt
 
+
+
 export default () => {
 
-    const [weatherForecast, setWeatherForecast] = useState(null)
+    const getLocation = () => {
 
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(success, error, options);
+        } else {
+          console.log("Geolocation not supported");
+        }
+        
+        function success(position) {
+          latitude = position.coords.latitude;
+          longitude = position.coords.longitude;
+          fetchForecast()
+        }
+    
+        function error(error) {
+          console.error(`Error: ${error.message}`);
+              switch (error.code) {
+                  case error.PERMISSION_DENIED:
+                      alert('User denied the request for Geolocation.');
+                      break;
+                  case error.POSITION_UNAVAILABLE:
+                      alert('Location information is unavailable.');
+                      break;
+                  case error.TIMEOUT:
+                      alert('The request to get user location timed out.');
+                      break;
+                  case error.UNKNOWN_ERROR:
+                      alert('An unknown error occurred.');
+                      break;
+        }
+      }
+    
+        function options(options) {
+          alert(options)
+        }
+    } 
+    
+    const [weatherForecast, setWeatherForecast] = useState(null)
+    
     const fetchForecast = async () => {
         try {
           const responseIP = await axios.get(
             `https://api.weatherapi.com/v1/ip.json?key=a81b4414f60f4c868a8162028241702&q=auto:ip`
           );
             const responseForecast = await axios.get(
-                `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru&days=10`
+                `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${latitude},${longitude}&lang=ru&days=10`
             )
             setWeatherForecast(responseForecast.data)
             console.log(responseForecast.data)
@@ -33,10 +74,17 @@ export default () => {
         }
     }
 
+
+
     useEffect(() => {
-        setTimeout(() => {
+
+        if(latitude != 0 ) {
             fetchForecast()
-        }, 0)
+          }
+          else {
+            getLocation()
+      
+          }
     }, []);
     
     

@@ -57,7 +57,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '0.4.0'
+  const version = '0.5.2'
 
   const imageAttribution = "Image by wirestock"
 
@@ -124,7 +124,6 @@ const Weather = () => {
       function success(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        console.log(latitude, longitude)
         fetchData()
       }
 
@@ -366,12 +365,10 @@ const Weather = () => {
 
   useEffect(() => {
     if(latitude != 0 ) {
-      console.log(latitude)
       fetchData()
     }
     else {
       getLocation()
-      console.log(latitude)
 
     }
     // setTimeout(() => {

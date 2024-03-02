@@ -11,6 +11,8 @@ import moment from 'moment'
 import 'moment/locale/ru'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import Geolocation from 'react-native-geolocation-service'
+
 
 // Импортируем файлы для облачной погоды
 
@@ -46,9 +48,12 @@ import Snowy_day from "./images/snowy/snowy_day.jpg"
 import Snowy_night from "./images/snowy/snowy_night.jpg"
 import Snowy_day_icon from "./images/snowy/snowy_icon_day.png"
 import Snowy_night_icon from "./images/snowy/snowy_icon_night.png"
+import { set } from 'countapi-js';
 
 
 moment.locale('ru')
+
+
 
 const Weather = () => {
 
@@ -68,6 +73,8 @@ const Weather = () => {
   const [ipData, setIPData] = useState(null)
   const [weatherForecast, setWeatherForecast] = useState(null)
 
+  
+
 
 
 
@@ -80,6 +87,9 @@ const Weather = () => {
   let uvIndex 
   let uvIndexLowHigh
   let uvColor
+
+  let latitude = 0 
+  let longitude = 0 
 
   let weekDay = moment().format('dddd').toUpperCase()
 
@@ -101,18 +111,58 @@ const Weather = () => {
   "В отдельных районах умеренный или сильный дождь с грозой","В отдельных районах местами небольшой снег с грозой","В отдельных районах умеренный или сильный снег с грозой"]
 
 
+  
+
+  const getLocation = () => {
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      } else {
+        console.log("Geolocation not supported");
+      }
+      
+      function success(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        console.log(latitude, longitude)
+        fetchData()
+      }
+
+      function error(error) {
+        console.error(`Error: ${error.message}`);
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert('User denied the request for Geolocation.');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert('Location information is unavailable.');
+                    break;
+                case error.TIMEOUT:
+                    alert('The request to get user location timed out.');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert('An unknown error occurred.');
+                    break;
+      }
+    }
+
+      function options(options) {
+        alert(options)
+      }
+  } 
 
 
   const fetchData = async () => {
 
     try {
-      const responseIP = await axios.get(
-        `https://api.weatherapi.com/v1/ip.json?key=a81b4414f60f4c868a8162028241702&q=auto:ip`
-      );
+      // const responseIP = await axios.get(
+      //   `https://api.weatherapi.com/v1/ip.json?key=a81b4414f60f4c868a8162028241702&q=auto:ip`
+      // );
       
+      console.log(longitude)
 
       const responseForecast = await axios.get(
-        `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${responseIP.data.city}&lang=ru&days=10`
+        `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${latitude},${longitude}&lang=ru&days=10`
       )
       setWeatherForecast(responseForecast.data)
       console.log(responseForecast.data)
@@ -315,9 +365,18 @@ const Weather = () => {
 
 
   useEffect(() => {
-    setTimeout(() => {
+    if(latitude != 0 ) {
+      console.log(latitude)
       fetchData()
-    }, 0)
+    }
+    else {
+      getLocation()
+      console.log(latitude)
+
+    }
+    // setTimeout(() => {
+    //   fetchData()
+    // }, 0)
   }, []);
 
 

@@ -161,7 +161,7 @@ const Weather = () => {
       console.log(longitude)
 
       const responseForecast = await axios.get(
-        `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${latitude},${longitude}&lang=ru&days=10`
+        `https://api.weatherapi.com/v1/forecast.json?key=a81b4414f60f4c868a8162028241702&q=${latitude},${longitude}&lang=ru&days=3`
       )
       setWeatherForecast(responseForecast.data)
       console.log(responseForecast.data)
@@ -448,7 +448,7 @@ const Weather = () => {
           <p className='dayliText'><svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 2.5H3.40015C2.56007 2.5 2.13972 2.5 1.81885 2.66349C1.5366 2.8073 1.3073 3.0366 1.16349 3.31885C1 3.63972 1 4.06007 1 4.90015V5.5M4 2.5H10M4 2.5V1M10 2.5H10.6001C11.4402 2.5 11.8597 2.5 12.1805 2.66349C12.4628 2.8073 12.6929 3.0366 12.8367 3.31885C13 3.6394 13 4.05925 13 4.89768V5.5M10 2.5V1M1 5.5V12.1001C1 12.9402 1 13.36 1.16349 13.6809C1.3073 13.9632 1.5366 14.1929 1.81885 14.3367C2.1394 14.5 2.55925 14.5 3.39768 14.5H10.6023C11.4408 14.5 11.86 14.5 12.1805 14.3367C12.4628 14.1929 12.6929 13.9632 12.8367 13.6809C13 13.3604 13 12.9411 13 12.1027V5.5M1 5.5H13M10 11.5H10.0015L10.0015 11.5015L10 11.5015V11.5ZM7 11.5H7.0015L7.00146 11.5015L7 11.5015V11.5ZM4 11.5H4.0015L4.00146 11.5015L4 11.5015V11.5ZM10.0015 8.5V8.5015L10 8.50146V8.5H10.0015ZM7 8.5H7.0015L7.00146 8.5015L7 8.50146V8.5ZM4 8.5H4.0015L4.00146 8.5015L4 8.50146V8.5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ПРОГНОЗ НА 10 ДНЕЙ
+          ПРОГНОЗ НА 3 ДНЯ
           </p>
 
           <div className='dailyForecastInfo'>
@@ -468,7 +468,7 @@ const Weather = () => {
                 </p>
             </div>
             <div className='forecastRow'>
-                <p>Завтра</p>
+                <p>{weatherForecast.forecast.forecastday[1].date.slice(8,10)}</p>
                 <img className='weather_icon_big' src={weatherForecast.forecast.forecastday[1].day.condition.icon}></img>
                 <p className='minmaxTemp'>
                 {weatherForecast.forecast.forecastday[1].day.maxtemp_c}° 
@@ -495,7 +495,7 @@ const Weather = () => {
                   </svg>
                 </p>
             </div>
-            <div className='forecastRow'>
+            {/* <div className='forecastRow'>
                 <p>{weatherForecast.forecast.forecastday[3].date.slice(8,10)}</p>
                 <img className='weather_icon_big' src={weatherForecast.forecast.forecastday[3].day.condition.icon}></img>
                 <p className='minmaxTemp'>
@@ -592,7 +592,7 @@ const Weather = () => {
                   <path d="M5 15.4L9 11.4M5 15.4L1 11.4M5 15.4L5 1.00003" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </p>
-            </div>
+            </div> */}
           </div>
 
         </div>

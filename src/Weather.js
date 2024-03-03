@@ -41,6 +41,7 @@ import Rainy_sunrise from "./images/rainy/rainy_sunrise.jpg"
 import Rainy_night from "./images/rainy/rainy_night.jpg"
 import Rainy_day_icon from "./images/rainy/rainy_icon_day.png"
 import Rainy_night_icon from "./images/rainy/rainy_icon_night.png"
+import Rainy_sunset_icon from "./images/rainy/rainy_icon_sunset.png"
 
 // Импортируем файлы для снежной погоды
 
@@ -57,7 +58,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '0.5.3'
+  const version = '0.5.4'
 
   const imageAttribution = "Image by wirestock"
 
@@ -101,7 +102,7 @@ const Weather = () => {
   const sunny = ["Солнечно", "Ясно"]
 
   const snowy = ["Местами снег", "Местами дождь со снегом", "Местами замерзающая морось", "Метель","Местами небольшой снег","Небольшой снег", 
-  "Местами умеренный снег","Умеренный снег","Местами сильный снег","Сильный снег", "Небольшой снег","Умеренный или сильный снег",]
+  "Местами умеренный снег","Умеренный снег","Местами сильный снег","Сильный снег", "Небольшой снег","Умеренный или сильный снег"]
 
   const rainy = ["Местами слабая морось","Слабая морось","Замерзающая морось","Сильная замерзающая морось","Местами небольшой дождь","Небольшой дождь",
   "Временами умеренный дождь","Умеренный дождь","Временами сильный дождь","Сильный дождь",
@@ -247,27 +248,62 @@ const Weather = () => {
         } else if(rainy.indexOf(`${responseForecast.data.current.condition.text}`) > -1) {
           if(localTimeVarInt >= 6 && localTimeVarInt < 13) {
             setbgImagePath(Rainy_sunrise)
-            setBgColor("#40666A")
-            setTextColor("#C9E8E0")
-            setWeatherIcon(Rainy_day_icon)
+            setBgColor("#E6ECEB")
+            setTextColor("#141F1B")
+            setWeatherIcon(Rainy_sunset_icon)
             setHourForecastBgColor("#57868B")
             setDailyForecastBgColor("#629AA0")
-          } else if(localTimeVarInt >= 13 && localTimeVarInt < 20){
+          } else if(localTimeVarInt >= 13 && localTimeVarInt < 18){
             setbgImagePath(Rainy_day)
-            setBgColor("#7FC3AE")
-            setTextColor("#C9E8E0")
+            setBgColor("#544E48")
+            setTextColor("#FFFFFF")
             setWeatherIcon(Rainy_day_icon)
             setHourForecastBgColor("#77DBBC")
             setDailyForecastBgColor("#6DE3BF")
-          } else if(localTimeVarInt >= 20 && localTimeVarInt < 6){
+          } else if(localTimeVarInt >= 18 && localTimeVarInt < 23){
             setbgImagePath(Rainy_night)
-            setBgColor("#615273")
-            setTextColor("#C2B8FF")
+            setBgColor("#090C10")
+            setTextColor("#BDD095")
             setWeatherIcon(Rainy_night_icon)
             setHourForecastBgColor("#7A6592")
             setDailyForecastBgColor("#9278AF")
+          } else if(localTimeVarInt >= 23 && localTimeVarInt < 6){
+            setbgImagePath(Rainy_night)
+            setBgColor("#5F7A25")
+            setTextColor("#FFFFFF")
+            setWeatherIcon(Rainy_night_icon)
+            setHourForecastBgColor("#7A6592")
+            setDailyForecastBgColor("#9278AF")
+          } 
         }
-        } else if(snowy.indexOf(`${responseForecast.data.current.condition.text}`) > -1) {
+        // AAAAA
+        //  else if(rainy.indexOf(`${responseForecast.data.current.condition.text}`) > -1) {
+          // if(localTimeVarInt >= 6 && localTimeVarInt < 13) {
+          //   setbgImagePath(Rainy_sunrise)
+          //   setBgColor("#40666A")
+          //   setTextColor("#C9E8E0")
+          //   setWeatherIcon(Rainy_day_icon)
+          //   setHourForecastBgColor("#57868B")
+          //   setDailyForecastBgColor("#629AA0")
+          // } else if(localTimeVarInt >= 13 && localTimeVarInt < 20){
+          //   setbgImagePath(Rainy_day)
+          //   setBgColor("#7FC3AE")
+          //   setTextColor("#C9E8E0")
+          //   setWeatherIcon(Rainy_day_icon)
+          //   setHourForecastBgColor("#77DBBC")
+          //   setDailyForecastBgColor("#6DE3BF")
+        //   } else if(localTimeVarInt >= 20 && localTimeVarInt < 6){
+        //     console.log(Rainy_night)
+        //     setbgImagePath(Rainy_night)
+        //     setBgColor("#615273")
+        //     setTextColor("#C2B8FF")
+        //     setWeatherIcon(Rainy_night_icon)
+        //     setHourForecastBgColor("#7A6592")
+        //     setDailyForecastBgColor("#9278AF")
+        // }
+        // } 
+        // AAAAAA
+        else if(snowy.indexOf(`${responseForecast.data.current.condition.text}`) > -1) {
           if(localTimeVarInt >= 6 && localTimeVarInt < 13) {
             setbgImagePath(Snowy_day)
             setBgColor("#99B8CC")

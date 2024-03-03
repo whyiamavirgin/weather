@@ -44,7 +44,7 @@ import Rainy_night_icon from "./images/rainy/rainy_icon_night.png"
 
 // Импортируем файлы для снежной погоды
 
-import Snowy_day from "./images/snowy/snowy_day.jpg"
+import Snowy_day from "./images/snowy/snowy_day.JPG"
 import Snowy_night from "./images/snowy/snowy_night.jpg"
 import Snowy_day_icon from "./images/snowy/snowy_icon_day.png"
 import Snowy_night_icon from "./images/snowy/snowy_icon_night.png"
@@ -57,7 +57,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '0.5.2'
+  const version = '0.5.3'
 
   const imageAttribution = "Image by wirestock"
 

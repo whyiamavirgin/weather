@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/weather/static/css/main.db69b12d.css",
-    "main.js": "/weather/static/js/main.9b5ad90a.js",
+    "main.css": "/weather/static/css/main.a6d2ae2b.css",
+    "main.js": "/weather/static/js/main.74e16f2c.js",
     "static/js/453.f9de0c33.chunk.js": "/weather/static/js/453.f9de0c33.chunk.js",
     "static/media/sunny_sunrise.jpg": "/weather/static/media/sunny_sunrise.1a05eed060e498c558ea.jpg",
     "static/media/sunny_sunset.jpg": "/weather/static/media/sunny_sunset.10af9040f72fef8313df.jpg",
@@ -10,6 +10,7 @@
     "static/media/sunny_day.JPG": "/weather/static/media/sunny_day.7f2d5f183f7d93a7d25b.JPG",
     "static/media/Poppins-Medium.ttf": "/weather/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/weather/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
+    "static/media/snowy_day.JPG": "/weather/static/media/snowy_day.e419301048e9e14c5bdf.JPG",
     "static/media/cloudy_sunset.JPG": "/weather/static/media/cloudy_sunset.3ce06b29cf7abf83d985.JPG",
     "static/media/Comfortaa-Medium.ttf": "/weather/static/media/Comfortaa-Medium.38f1e18437fa36e36627.ttf",
     "static/media/outline-icons.svg": "/weather/static/media/outline-icons.9c4845b4b41ef40a22fa.svg",
@@ -21,7 +22,6 @@
     "static/media/snowy_night.jpg": "/weather/static/media/snowy_night.c5fda402c44ece914f04.jpg",
     "static/media/rainy_sunrise.jpg": "/weather/static/media/rainy_sunrise.19e6d4b40d585b4eb583.jpg",
     "static/media/rainy_day.jpg": "/weather/static/media/rainy_day.f1cb205966977915cf14.jpg",
-    "static/media/snowy_day.jpg": "/weather/static/media/snowy_day.2ab51ca629ad0d286d77.jpg",
     "static/media/rainy_night.jpg": "/weather/static/media/rainy_night.da8b516e80fd9bef0f83.jpg",
     "static/media/brand-icons.woff": "/weather/static/media/brand-icons.cac87dc00c87a5d74711.woff",
     "static/media/cloudy_night.jpg": "/weather/static/media/cloudy_night.26e8064d5c5c94a3571a.jpg",
@@ -35,12 +35,12 @@
     "static/media/outline-icons.woff": "/weather/static/media/outline-icons.ddae9b1ba9b0b42f5880.woff",
     "static/media/outline-icons.woff2": "/weather/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
     "index.html": "/weather/index.html",
-    "main.db69b12d.css.map": "/weather/static/css/main.db69b12d.css.map",
-    "main.9b5ad90a.js.map": "/weather/static/js/main.9b5ad90a.js.map",
+    "main.a6d2ae2b.css.map": "/weather/static/css/main.a6d2ae2b.css.map",
+    "main.74e16f2c.js.map": "/weather/static/js/main.74e16f2c.js.map",
     "453.f9de0c33.chunk.js.map": "/weather/static/js/453.f9de0c33.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.db69b12d.css",
-    "static/js/main.9b5ad90a.js"
+    "static/css/main.a6d2ae2b.css",
+    "static/js/main.74e16f2c.js"
   ]
 }

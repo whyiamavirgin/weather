@@ -57,7 +57,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '1.0.0'
+  const version = '1.0.1'
 
   const imageAttribution = "Image by wirestock"
 
@@ -527,7 +527,7 @@ const Weather = () => {
               <SwitchLovely
                 onChange={handleChange}
               />
-              <p>Неделя</p>
+              <p>3 дня</p>
             </div>
 
 

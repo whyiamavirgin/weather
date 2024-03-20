@@ -556,8 +556,8 @@ body {
   margin-left: -30%;
   /* max-width: 100%; */
   min-height: 150px;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
   padding-top: 20px;
   /* padding-bottom: 43px; */
   margin-top: 250px;

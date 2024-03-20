@@ -57,7 +57,7 @@ moment.locale('ru')
 
 const Weather = () => {
 
-  const version = '1.1.1'
+  const version = '1.1.2'
 
   const imageAttribution = "Image by wirestock"
 

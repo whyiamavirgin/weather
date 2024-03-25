@@ -7,6 +7,7 @@ import "swiper/css/parallax"
 import { Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 // import Seventeen from './hourModules/Seventeen'
+import WeeklyHourForecast from './WeeklyHourForecast';
 
 
 
@@ -14,10 +15,44 @@ let latitude = 0
 let longitude = 0 
 
 let localTimeVarInt
+let getBlockDisplay
+let blockIDEx
+let removeBlock
+
 
 
 
 export default ( { currentBg, futureBg }) => {
+    const [showBlock1, setShowBlock1] = useState(false);
+    const [showBlock2, setShowBlock2] = useState(false);
+
+
+
+    const handleBlock1Click = () => {
+        if(document.getElementById("block2")) {
+            setShowBlock2(!showBlock2)
+            setShowBlock1(!showBlock1)
+            blockIDEx = "block1"
+            removeBlock = document.getElementById("block2")
+            removeBlock.parentNode.removeChild(removeBlock)
+        } else {
+            setShowBlock1(!showBlock1)
+            blockIDEx = "block1"
+        }
+      };
+
+      const handleBlock2Click = () => {
+        if(document.getElementById("block1")) {
+            setShowBlock1(!showBlock1)
+            setShowBlock2(!showBlock2)
+            blockIDEx = "block2"
+            removeBlock = document.getElementById("block1")
+            removeBlock.parentNode.removeChild(removeBlock)
+        } else {
+            setShowBlock2(!showBlock2)
+            blockIDEx = "block2"
+        }
+      };
     console.log(currentBg)
 
     const getLocation = () => {
@@ -93,7 +128,7 @@ export default ( { currentBg, futureBg }) => {
     return(
         <div className = "upper-layer-Slider-Weekly">
         {weatherForecast ? (
-                
+            <>
                 <Swiper
                     // install Swiper modules
                     modules={[ FreeMode]}
@@ -124,7 +159,9 @@ export default ( { currentBg, futureBg }) => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='sliderComponent-Weekly'
+                            id='first-sliderComponent-Weekly'
                             style={currentBg!="null" ? {backgroundColor:futureBg} : {backgroundColor:"#fff"}}
+                            onClick={handleBlock1Click}
                         >
                             <p>{weatherForecast.forecast.forecastday[1].date.slice(8,10)}</p>
                             <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].day.condition.icon}></img>
@@ -144,7 +181,9 @@ export default ( { currentBg, futureBg }) => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='sliderComponent-Weekly'
+                            id='second-sliderComponent-Weekly'
                             style={currentBg!="null" ? {backgroundColor:futureBg} : {backgroundColor:"#fff"}}
+                            onClick={handleBlock2Click}
                         >
                             <p>{weatherForecast.forecast.forecastday[2].date.slice(8,10)}</p>
                             <img className='weather_icon_small' src={weatherForecast.forecast.forecastday[0].day.condition.icon}></img>
@@ -166,7 +205,64 @@ export default ( { currentBg, futureBg }) => {
 
                     </SwiperSlide>
                 </Swiper>
-        
+                {/* TOMORROW */}
+                {showBlock1 && (
+                        <div
+                        className="block2"
+                        style={{ animation: 'fadeIn 0.3s' }}
+                        >
+                            <WeeklyHourForecast 
+                                futureBg={futureBg}
+                                dayVar={1}
+                                blockID={blockIDEx}
+                            />
+                        </div>
+                    )}
+                    {showBlock1 && (
+                        <div
+                        className="block2"
+                        style={{
+                            animation: 'fadeOut 0.3s',
+                            display: 'none',
+                        }}
+                        >
+                            <WeeklyHourForecast 
+                                futureBg={futureBg}
+                                dayVar={1}
+                                blockID={blockIDEx}
+                            />
+                        </div>
+                    )}
+
+                {/* DAY AFTER TOMORROW */}
+                {showBlock2 && (
+                        <div
+                        className="block2"
+                        style={{ animation: 'fadeIn 0.3s' }}
+                        >
+                            <WeeklyHourForecast 
+                                futureBg={futureBg}
+                                dayVar={2}
+                                blockID={blockIDEx}
+                            />
+                        </div>
+                    )}
+                    {showBlock2 && (
+                        <div
+                        className="block2"
+                        style={{
+                            animation: 'fadeOut 0.3s',
+                            display: 'none',
+                        }}
+                        >
+                            <WeeklyHourForecast 
+                                futureBg={futureBg}
+                                dayVar={2}
+                                blockID={blockIDEx}
+                            />
+                        </div>
+                    )}
+            </> 
         ) : (
             <div></div>
         )}

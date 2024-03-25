@@ -615,6 +615,16 @@ body {
   z-index: 4;
 }
 
+.upper-layer-Slider:nth-child(1) {
+  padding-left: 0px;
+  margin-top: 50px;
+  /* text-align: left; */
+}
+
+.upper-layer-Slider:nth-child(1) .weeklyHourText {
+  text-align: left !important;
+}
+
 .upper-layer-Slider p:first-child {
   font-size: 17px;
   font-weight: bold;
@@ -623,7 +633,7 @@ body {
 }
 
 .upper-layer-Slider-Weekly {
-  display: flex;
+  /* display: flex; */
   position: relative;
   margin: auto;
   text-align: center;
@@ -664,6 +674,43 @@ body {
   align-items: center;
 }
 
+#first-sliderComponent-Weekly:hover, #second-sliderComponent-Weekly:hover, #first-sliderComponent-Weekly:active, #second-sliderComponent-Weekly:active {
+  cursor: pointer;
+  filter: sepia(30%);
+}
+
+.sliderComponent-Weekly-Hour {
+  max-width: 48px;
+  height: 100px;
+  position: relative;
+  /* background-color: #FF6461; */
+  border-radius: 35px;
+  padding: 10px 4px;
+  margin: 0;
+  text-align: center;
+  box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.7);
+  margin-top: 30px;
+}
+
+.block2 {
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.weeklyHourText {
+  position: inherit;
+  margin-bottom: 30px;
+  text-align: left;
+  margin-left: -40px;
+}
+
+.inactive {
+  display: none;
+}
+
+
 
 /* Медиа запросы */
 
@@ -692,6 +739,10 @@ body {
     width: 600px;
   }
 
+  .upper-layer-Slider {
+    width: 600px;
+  }
+
   .info {
     width: 30%;
   }
@@ -705,7 +756,8 @@ body {
   } 
 
   .upper-layer-Slider {
-    width: 70%;
+    width: 85%;
+    margin-left: 1px;
   } 
 
   .upper-layer-Slider-Weekly {

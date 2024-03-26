@@ -353,18 +353,18 @@ body {
   padding-bottom: 15px;
 
 /*the alpha value controls the transparency*/
-  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(255, 255, 255, 0.3); */
 
 /* This controls the blurring effect*/
-  backdrop-filter: blur( 25px );
-  -webkit-backdrop-filter: blur( 25px );
+  /* backdrop-filter: blur( 25px );
+  -webkit-backdrop-filter: blur( 25px ); */
 
 /*Adding the shadow*/
   /* box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 ); */
 
 /* Adding our borders*/
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18); */
   z-index: 4;
 }
 
